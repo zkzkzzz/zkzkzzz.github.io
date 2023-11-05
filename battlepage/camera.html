@@ -1,0 +1,68 @@
+<!DOCTYPE html>  
+<html lang="en">
+    <script src="https://ar.cnxfs.com.cn/aframe-master.min.js"></script>
+    <script src="https://ar.cnxfs.com.cn/aframe-ar-nft.js"></script>
+<head>
+      <meta http-equiv="Content-Type"content="text/html;charset=utf-8">
+      <title>camera</title>
+    </head>
+
+
+<!-- style for the loader -->
+<style>
+    .arjs-loader {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .arjs-loader div {
+      text-align: center;
+      font-size: 1.3em;
+      color: rgb(225, 225, 129);
+    }
+  </style>
+  
+  
+  <body style="margin : 0px; overflow: hidden;">
+   
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+  
+    <!-- a-frame scene -->
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    >
+     
+      <a-nft
+        type="nft"
+        url="./NFT descriptor/woodenbox/woodenbox"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
+       
+        <a-entity
+          gltf-model="./3D model/backimage/scene.gltf"
+          scale="0.8 0.8 0.8"
+          position="20 20 0"
+          rotation="-90 0 0"
+          animation="property: rotation; to: 360 0 0; loop: true; duration: 20000"
+        >
+        </a-entity>
+      </a-nft>
+      
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
